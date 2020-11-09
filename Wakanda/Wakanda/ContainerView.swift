@@ -10,12 +10,27 @@ import SwiftUI
 
 struct ContainerView<Content: View>: View {
     
+    @Environment(\.presentationMode) var presentationMode
     
+    var showBackButton = false
     let title: String
     var content: () -> Content
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
+                if self.showBackButton {
+                Image(systemName: "arrow.left")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                    .frame(width: 30, height: 20)
+                    .padding(.leading, 8)
+                    .onTapGesture {
+                        withAnimation {                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                }
+                }
                 Spacer()
                 Text("Wakanda")
                     .font(.largeTitle)
@@ -53,13 +68,14 @@ struct ContainerView<Content: View>: View {
         }
         .frame(maxWidth: .infinity)
         .background(mainBgColor.edgesIgnoringSafeArea(.all))
+
     }
 }
 
-//struct ContainerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContainerView(title: "Pick a Service") {
-//            HomeView()
-//        }
-//    }
-//}
+struct ContainerView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContainerView(title: "Pick a Service") {
+            HomeView()
+        }
+    }
+}

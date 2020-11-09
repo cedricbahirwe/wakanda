@@ -16,6 +16,7 @@
 		822E954D25531B5C00E98F22 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E954C25531B5C00E98F22 /* MenuView.swift */; };
 		822E95772553F73B00E98F22 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95762553F73B00E98F22 /* LoginPageView.swift */; };
 		822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95782553F76200E98F22 /* CustomPasswordField.swift */; };
+		82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A2AC1D255916F0003B7D62 /* ShortcutView.swift */; };
 		82F775DD25552E74006EDAEF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775DC25552E74006EDAEF /* DetailView.swift */; };
 		82F775E125552EE6006EDAEF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775E025552EE6006EDAEF /* HomeView.swift */; };
 		82F775E325553094006EDAEF /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775E225553094006EDAEF /* ContainerView.swift */; };
@@ -35,6 +36,7 @@
 		822E954C25531B5C00E98F22 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		822E95762553F73B00E98F22 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		822E95782553F76200E98F22 /* CustomPasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordField.swift; sourceTree = "<group>"; };
+		82A2AC1D255916F0003B7D62 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		82F775DC25552E74006EDAEF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		82F775E025552EE6006EDAEF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		82F775E225553094006EDAEF /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				82F775E025552EE6006EDAEF /* HomeView.swift */,
 				822E954C25531B5C00E98F22 /* MenuView.swift */,
 				82F775DC25552E74006EDAEF /* DetailView.swift */,
+				82A2AC1D255916F0003B7D62 /* ShortcutView.swift */,
 				82F775E4255538C6006EDAEF /* Extensions.swift */,
 				822E95762553F73B00E98F22 /* LoginPageView.swift */,
 				822E95782553F76200E98F22 /* CustomPasswordField.swift */,
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */,
 				822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */,
 				822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */,
 				82F775E325553094006EDAEF /* ContainerView.swift in Sources */,
