@@ -8,51 +8,47 @@
 
 import SwiftUI
 
-let mainFgColor = Color(red: 0.011, green: 0.37, blue: 0.351)
+
+extension Color {
+    static let mainFgColor = Color(red: 0.011, green: 0.37, blue: 0.351)
+    static let secondaryBgColor = Color(.secondarySystemBackground)
+}
 
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var showLanguageView = false
     var body: some View {
-        
-        VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "arrow.left")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
-                    .onTapGesture {
-                        withAnimation {                            self.presentationMode.wrappedValue.dismiss()
-                        }
+        ZStack {
+            VStack(alignment: .leading) {
+                ColoredHeader("Main Menu")
+                
+                ScrollView {
+                    MenuRow(image: "plus.circle.fill", title: "Save your accounts", subTitle: "Save your meter numbers etc")
+                    MenuRow(image: "square.and.arrow.up.fill", title: "Share Wakanda", subTitle: "Share app with friends")
+                        .onTapGesture { self.actionShareSheet()}
+                    MenuRow(image: "person.3.fill", title: "Change Language", subTitle: "")
+                        .onTapGesture { self.showLanguageView.toggle() }
+                    NavigationLink(destination: AboutView()) {
+                        MenuRow(image: "exclamationmark.circle.fill", title: "About Wakanda", subTitle: "")
+                    }
+                    NavigationLink(destination: FAQView()) {
+                        MenuRow(image: "bubble.left.and.bubble.right.fill", title: "FAQ", subTitle: "")
+                    }
+                    MenuRow(image: "envelope.fill", title: "Email Support", subTitle: "")
+                    MenuRow(image: "lock.shield.fill", title: "Logout", subTitle: "")
+                    
+                    Text("Version: 3.0.0 Build: 30")
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
                 }
-                Spacer().frame(width: 50)
-                Text("Main Menu")
-                    .font(.system(size: 20))
-                    .bold()
+                .padding(.leading)
+                .padding(.trailing, 5)
             }
-            .foregroundColor(.white)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .frame(height: UIScreen.main.bounds.size.height/4)
-            .background(mainBgColor.edgesIgnoringSafeArea(.top))
+            .background(Color.secondaryBgColor.edgesIgnoringSafeArea(.all))
+            .transition(.slide)
+            if self.showLanguageView { LanguageView(showLanguageView: $showLanguageView) }
             
-            
-            ScrollView {
-                MenuRow(image: "plus.circle.fill", title: "Save your accounts", subTitle: "Save your meter numbers etc")
-                MenuRow(image: "square.and.arrow.up.fill", title: "Share Wakanda", subTitle: "Share app with friends")
-                MenuRow(image: "person.3.fill", title: "Change Language", subTitle: "")
-                MenuRow(image: "exclamationmark.circle.fill", title: "About Wakanda", subTitle: "")
-                MenuRow(image: "bubble.left.and.bubble.right.fill", title: "FAQ", subTitle: "")
-                MenuRow(image: "envelope.fill", title: "Email Support", subTitle: "")
-                MenuRow(image: "lock.shield.fill", title: "Logout", subTitle: "")
-                
-                Text("Version: 3.0.0 Build: 30")
-                    .foregroundColor(Color(.lightGray))
-                .font(.system(size: 14, weight: .semibold))
-                
-            }
-            .padding(.leading)
-            .padding(.trailing, 5)
-        }.transition(.slide)
+        }
         .navigationBarTitle("")
         .navigationBarHidden(true)
     }
@@ -61,6 +57,7 @@ struct MenuView: View {
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
+        //            .environment(\.colorScheme, .dark)
     }
 }
 
@@ -74,11 +71,12 @@ struct MenuRow: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 22, height: 22)
-                .foregroundColor(mainFgColor)
+                .foregroundColor(.mainFgColor)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
                     .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(Color(.label))
                 
                 if !self.subTitle.isEmpty {
                     Text(subTitle)
@@ -89,5 +87,36 @@ struct MenuRow: View {
         }
         .padding(10)
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+
+struct ColoredHeader: View {
+    @Environment(\.presentationMode) var presentationMode
+    let title: String
+    init(_ title: String) {
+        self.title = title
+    }
+    var body: some View {
+        HStack {
+            Image(systemName: "arrow.left")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 20, height: 20)
+                .onTapGesture {
+                    withAnimation {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+            }
+            Spacer().frame(width: 50)
+            Text(title)
+                .font(.system(size: 20))
+                .bold()
+        }
+        .foregroundColor(.white)
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: UIScreen.main.bounds.size.height/4)
+        .background(mainBgColor.edgesIgnoringSafeArea(.top))
     }
 }

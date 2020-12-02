@@ -15,17 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nokanda" translatesAutoresizingMaskIntoConstraints="NO" id="Knt-1J-Sxs">
-                                <rect key="frame" x="107" y="197" width="200" height="512"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wakanda" translatesAutoresizingMaskIntoConstraints="NO" id="0rU-O4-8Pt">
+                                <rect key="frame" x="103.5" y="349.5" width="207" height="207"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="w4m-OA-Za5"/>
+                                    <constraint firstAttribute="width" secondItem="0rU-O4-8Pt" secondAttribute="height" id="dd9-dK-Th8"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Knt-1J-Sxs" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="GnV-xu-9jE"/>
-                            <constraint firstItem="Knt-1J-Sxs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hE9-6f-v52"/>
+                            <constraint firstItem="0rU-O4-8Pt" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="2q9-KX-aXr"/>
+                            <constraint firstItem="0rU-O4-8Pt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EE1-oS-nJB"/>
+                            <constraint firstItem="0rU-O4-8Pt" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="rre-yz-XRU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="nokanda" width="512" height="512"/>
+        <image name="wakanda" width="300" height="300"/>
     </resources>
 </document>

@@ -41,7 +41,7 @@ struct HomeView: View {
                         
                         HStack {
                             Image(systemName: "house.fill")
-                                .foregroundColor(mainFgColor)
+                                .foregroundColor(.mainFgColor)
                             Spacer()
                             Image("hexa")
                                 .resizable()
@@ -56,7 +56,7 @@ struct HomeView: View {
                         .overlay(
                             
                             Image(systemName: "suit.heart.fill")
-                                .foregroundColor(mainFgColor)
+                                .foregroundColor(.mainFgColor)
                                 .frame(width: 50,height: 50)
                                 .background(Color.white)
                                 .clipShape(Circle())
@@ -69,7 +69,6 @@ struct HomeView: View {
                         )
                     }
                 }
-                    
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
             }
