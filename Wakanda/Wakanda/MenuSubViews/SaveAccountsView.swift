@@ -50,6 +50,7 @@ struct SaveAccountsView: View {
             
         }
         .font(.footnote)
+        .poppableView()
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -75,8 +76,15 @@ struct CategoriesDropDown: View {
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(showDropDown ? categories : selectedCategory, id: \.self)  { category in
-                Text(category).padding(self.showDropDown ? 10 : 4)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(category).padding(self.showDropDown ? 10 : 4)
+                    if self.showDropDown == false {
+                        Image(systemName: "arrowtriangle.down.fill")
+                            .resizable()
+                            .frame(width: 10, height: 8)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         self.selectedCategory = [category]

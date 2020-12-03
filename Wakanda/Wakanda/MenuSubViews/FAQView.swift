@@ -45,6 +45,7 @@ struct FAQView: View {
             Spacer()
         }
         .foregroundColor(.white)
+        .poppableView()
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

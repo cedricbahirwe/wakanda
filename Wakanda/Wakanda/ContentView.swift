@@ -12,7 +12,7 @@ let mainBgColor: some View = Color.green.colorMultiply(Color.blue)
 
 struct ContentView: View {
     var body: some View {
-        HomeView()
+        QRView()
     }
 }
 

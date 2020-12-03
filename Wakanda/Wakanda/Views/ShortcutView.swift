@@ -12,18 +12,19 @@ struct ShortcutView: View {
     var body: some View {
         ContainerView(showBackButton: true, title: "Shortcuts") {
             VStack {
-                 MenuRow(image: "qrcode", title: "Show my qrcode", subTitle: "")
+                MenuRow(image: "qrcode", title: "Show my qrcode", subTitle: "")
                     .background(Color.white)
                     .cornerRadius(5)
-                    .shadow(color: Color.black, radius: 3, x: 3, y: 2)
+                    .shadow(radius: 3)
                 
                 MenuRow(image: "phone.circle.fill", title: "For Others", subTitle: "MTN MOBILE MONEY")
                     .background(Color.white)
+                    .cornerRadius(5)
                     .overlay(
                         Image(systemName: "trash")
                             .imageScale(.small)
                             .foregroundColor(.red)
-                        .padding()
+                            .padding()
                         , alignment: .trailing)
                 Spacer()
                 
@@ -38,5 +39,6 @@ struct ShortcutView: View {
 struct ShortcutView_Previews: PreviewProvider {
     static var previews: some View {
         ShortcutView()
+            .environment(\.colorScheme, .dark)
     }
 }

@@ -18,6 +18,7 @@ struct AboutView: View {
                 .padding()
             Spacer()
         }
+        .poppableView()
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

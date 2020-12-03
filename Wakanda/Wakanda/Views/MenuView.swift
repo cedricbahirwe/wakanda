@@ -12,6 +12,8 @@ import SwiftUI
 extension Color {
     static let mainFgColor = Color(red: 0.011, green: 0.37, blue: 0.351)
     static let secondaryBgColor = Color(.secondarySystemBackground)
+    static let btnColor = Color(red: 0.201, green: 0.238, blue: 0.58)
+    static let tryit = Color(red: 1/255, green: 50/255, blue: 32/255)
 }
 
 struct MenuView: View {
@@ -51,6 +53,7 @@ struct MenuView: View {
             if self.showLanguageView { LanguageView(showLanguageView: $showLanguageView) }
             
         }
+        .poppableView()
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -83,13 +86,13 @@ struct MenuRow: View {
                 
                 if !self.subTitle.isEmpty {
                     Text(subTitle)
-                        .foregroundColor(.gray)
                         .font(.system(size: 12, weight: .regular))
                 }
             }
         }
-        .padding(10)
+        .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.systemBackground))
     }
 }
 

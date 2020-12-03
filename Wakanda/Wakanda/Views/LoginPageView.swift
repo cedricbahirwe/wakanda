@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct LoginPageView: View {
-    let mainColor = Color(red: 0.201, green: 0.238, blue: 0.58)
     @State var didBeginEmailEditing = false
     @State var isEditingPassword = false
     @State var email = ""
@@ -62,7 +61,7 @@ struct LoginPageView: View {
                             }
                         }
                     }).disableAutocorrection(true)
-                        .overlay(Rectangle().fill(self.validateEmail ? self.mainColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
+                        .overlay(Rectangle().fill(self.validateEmail ? Color.mainFgColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
                 }
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Password")
@@ -70,7 +69,7 @@ struct LoginPageView: View {
                         .offset(x: 0, y: self.isEditingPassword ? 0 : 20)
                     CustomPasswordField(text: self.$password, placeholder: "", isEditingPassword: $isEditingPassword, color: UIColor(red: 0.201, green: 0.238, blue: 0.58, alpha: 1))
                         .overlay(Rectangle()
-                            .fill(self.validatePassword ? self.mainColor : .red)
+                            .fill(self.validatePassword ? Color.mainFgColor : .red)
                             
                             .frame(height: 1)
                             .offset(y: 5)
@@ -89,7 +88,7 @@ struct LoginPageView: View {
                             .foregroundColor(Color.white)
                     }
                     .padding(20)
-                    .background(self.mainColor)
+                    .background(Color.tryit)
                     .clipShape(Circle())
                 }
                 
@@ -103,7 +102,7 @@ struct LoginPageView: View {
                     }) {
                         Text("Sign up")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .overlay(Rectangle().fill(self.mainColor).frame(height: 2).offset(y: 2), alignment: .bottom)
+                            .overlay(Rectangle().fill(Color.mainFgColor).frame(height: 2).offset(y: 2), alignment: .bottom)
                     }
                     Spacer()
                     Button(action: {
@@ -111,12 +110,12 @@ struct LoginPageView: View {
                     }) {
                         Text("Forgot Password")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .overlay(Rectangle().fill(self.mainColor).frame(height: 2).offset(y: 2), alignment: .bottom)
+                            .overlay(Rectangle().fill(Color.mainFgColor).frame(height: 2).offset(y: 2), alignment: .bottom)
                     }
                 }
             }
         }
-        .foregroundColor(mainColor)
+        .foregroundColor(.tryit)
         .padding()
         .padding()
     }
