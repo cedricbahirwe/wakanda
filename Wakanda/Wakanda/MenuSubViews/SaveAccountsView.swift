@@ -19,33 +19,27 @@ struct SaveAccountsView: View {
                 AccountRow(title: "Number", placeholder: "Enter number", keyboardType: .numberPad,contentType: .telephoneNumber, value: .constant(""))
                 AccountRow(title: "Label", placeholder: "Enter label e.g home", value: .constant(""))
                 
-                HStack(alignment: .top, spacing: 30) {
-                    Text("Category")
-                        .frame(width: 60, alignment: .leading)
-                    VStack(alignment: .leading) {
-//                        HStack(spacing: 16) {
-//                            Text("Select")
-//                            Image(systemName: "arrowtriangle.down.fill")
-//                        }
+                ZStack(alignment: .top) {
+                    HStack(alignment: .top, spacing: 30) {
+                        Text("Category").frame(width: 60, alignment: .leading)
                         CategoriesDropDown(categories: $accountCategories, showDropDown: $showDropDown)
                     }
+                    .padding(5)
+                    .zIndex(1)
+                    
+                    Button(action: {}) {
+                        Text("Save")
+                            .foregroundColor(.white)
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(Color(red: 0.008, green: 0.087, blue: 0.254))
+                            .cornerRadius(8)
+                    }
+                    .offset(y: 65)
                 }
-                .padding(5)
                 
-                if self.showDropDown == false {
-                Button(action: {}) {
-                    Text("Save")
-                        .foregroundColor(.white)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 40)
-                        .background(Color(red: 0.008, green: 0.087, blue: 0.254))
-                        .cornerRadius(8)
-                }
-                .padding(.vertical)
-                .animation(Animation.easeInOut.delay(2))
-                }
-                 Spacer()
+                Spacer()
             }
             .padding()
             .background(Color.secondaryBgColor.edgesIgnoringSafeArea(.bottom)
@@ -53,7 +47,7 @@ struct SaveAccountsView: View {
                 self.hideKeyboard()
             })
             
-           
+            
         }
         .font(.footnote)
         .navigationBarTitle("")
@@ -65,12 +59,12 @@ struct SaveAccountsView: View {
 struct SaveAccountsView_Previews: PreviewProvider {
     static var previews: some View {
         SaveAccountsView()
-            .environment(\.colorScheme, .dark)
+//            .environment(\.colorScheme, .dark)
     }
 }
 struct CategoriesDropDown: View {
     @Binding var categories: [String]
-    @State var selectedCategory: [String] = [""]
+    @State var selectedCategory: [String] = ["Select"]
     @Binding var showDropDown: Bool
     
     init(categories: Binding<[String]>, showDropDown: Binding<Bool>) {
@@ -81,7 +75,7 @@ struct CategoriesDropDown: View {
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(showDropDown ? categories : selectedCategory, id: \.self)  { category in
-                Text(category).padding(10)
+                Text(category).padding(self.showDropDown ? 10 : 4)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
@@ -93,8 +87,9 @@ struct CategoriesDropDown: View {
             }
         }
         .frame(maxWidth: size.width/1.5, alignment: .leading)
-        .background(Color(.systemBackground))
-
+        .background(showDropDown ? Color(.systemBackground) : .secondaryBgColor)
+        .shadow(radius: showDropDown ? 3 : 0)
+        
     }
 }
 
