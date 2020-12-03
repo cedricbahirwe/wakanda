@@ -23,7 +23,9 @@ struct MenuView: View {
                 ColoredHeader("Main Menu")
                 
                 ScrollView {
-                    MenuRow(image: "plus.circle.fill", title: "Save your accounts", subTitle: "Save your meter numbers etc")
+                    NavigationLink(destination: SaveAccountsView()) {
+                        MenuRow(image: "plus.circle.fill", title: "Save your accounts", subTitle: "Save your meter numbers etc")
+                    }
                     MenuRow(image: "square.and.arrow.up.fill", title: "Share Wakanda", subTitle: "Share app with friends")
                         .onTapGesture { self.actionShareSheet()}
                     MenuRow(image: "person.3.fill", title: "Change Language", subTitle: "")
@@ -51,6 +53,7 @@ struct MenuView: View {
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

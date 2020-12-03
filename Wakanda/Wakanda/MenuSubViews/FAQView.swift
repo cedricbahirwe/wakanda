@@ -45,8 +45,9 @@ struct FAQView: View {
             Spacer()
         }
         .foregroundColor(.white)
-
-        
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -18,6 +18,9 @@ struct AboutView: View {
                 .padding()
             Spacer()
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
