@@ -38,6 +38,7 @@ struct QRView: View {
             }
             .font(.body)
         }
+        .poppableView()
     }
     
     private func generateQRCodeImage(from number: String) -> UIImage {

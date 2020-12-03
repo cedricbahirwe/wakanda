@@ -12,26 +12,34 @@ struct ShortcutView: View {
     var body: some View {
         ContainerView(showBackButton: true, title: "Shortcuts") {
             VStack {
-                MenuRow(image: "qrcode", title: "Show my qrcode", subTitle: "")
-                    .background(Color.white)
-                    .cornerRadius(5)
-                    .shadow(radius: 3)
+                NavigationLink(destination: QRView()) {
+                    MenuRow(image: "qrcode", title: "Show my qrcode", subTitle: "")
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(radius: 3)
+                }
                 
-                MenuRow(image: "phone.circle.fill", title: "For Others", subTitle: "MTN MOBILE MONEY")
-                    .background(Color.white)
-                    .cornerRadius(5)
-                    .overlay(
-                        Image(systemName: "trash")
-                            .imageScale(.small)
-                            .foregroundColor(.red)
-                            .padding()
-                        , alignment: .trailing)
+                NavigationLink(destination: SendingView()) {
+                    MenuRow(image: "phone.circle.fill", title: "For Others", subTitle: "MTN MOBILE MONEY")
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .overlay(
+                            Image(systemName: "trash")
+                                .imageScale(.small)
+                                .foregroundColor(.red)
+                                .padding()
+                            , alignment: .trailing)
+                }
                 Spacer()
                 
             }
             .padding()
             
         }
+        .poppableView()
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
         
     }
 }
@@ -39,6 +47,6 @@ struct ShortcutView: View {
 struct ShortcutView_Previews: PreviewProvider {
     static var previews: some View {
         ShortcutView()
-            .environment(\.colorScheme, .dark)
+        //            .environment(\.colorScheme, .dark)
     }
 }

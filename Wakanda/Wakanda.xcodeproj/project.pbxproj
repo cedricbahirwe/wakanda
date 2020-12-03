@@ -13,6 +13,9 @@
 		821AB0FF2577CC0600EA39D5 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821AB0FE2577CC0600EA39D5 /* LanguageView.swift */; };
 		821AB1012577D5ED00EA39D5 /* SaveAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821AB1002577D5ED00EA39D5 /* SaveAccountsView.swift */; };
 		8229EF1A257913530070D1A3 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF19257913530070D1A3 /* QRView.swift */; };
+		8229EF1E257923B10070D1A3 /* SendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF1D257923B00070D1A3 /* SendingView.swift */; };
+		8229EF20257938CB0070D1A3 /* ContactPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF1F257938CB0070D1A3 /* ContactPicker.swift */; };
+		8229EF2225793A010070D1A3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF2125793A010070D1A3 /* Contact.swift */; };
 		822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953825530A6D00E98F22 /* AppDelegate.swift */; };
 		822E953B25530A6D00E98F22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953A25530A6D00E98F22 /* SceneDelegate.swift */; };
 		822E953D25530A6D00E98F22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953C25530A6D00E98F22 /* ContentView.swift */; };
@@ -37,6 +40,9 @@
 		821AB0FE2577CC0600EA39D5 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		821AB1002577D5ED00EA39D5 /* SaveAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountsView.swift; sourceTree = "<group>"; };
 		8229EF19257913530070D1A3 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		8229EF1D257923B00070D1A3 /* SendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingView.swift; sourceTree = "<group>"; };
+		8229EF1F257938CB0070D1A3 /* ContactPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPicker.swift; sourceTree = "<group>"; };
+		8229EF2125793A010070D1A3 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		822E953525530A6D00E98F22 /* Wakanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822E953825530A6D00E98F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		822E953A25530A6D00E98F22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				822E954C25531B5C00E98F22 /* MenuView.swift */,
 				8229EF19257913530070D1A3 /* QRView.swift */,
 				82A2AC1D255916F0003B7D62 /* ShortcutView.swift */,
+				8229EF1D257923B00070D1A3 /* SendingView.swift */,
+				8229EF1F257938CB0070D1A3 /* ContactPicker.swift */,
+				8229EF2125793A010070D1A3 /* Contact.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,11 +232,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8229EF20257938CB0070D1A3 /* ContactPicker.swift in Sources */,
 				82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */,
 				822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */,
 				822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */,
 				82F775E325553094006EDAEF /* ContainerView.swift in Sources */,
 				821AB0FB2577C9E600EA39D5 /* AboutView.swift in Sources */,
+				8229EF2225793A010070D1A3 /* Contact.swift in Sources */,
 				822E954D25531B5C00E98F22 /* MenuView.swift in Sources */,
 				82F775DD25552E74006EDAEF /* DetailView.swift in Sources */,
 				82F775E5255538C6006EDAEF /* Extensions.swift in Sources */,
@@ -235,6 +246,7 @@
 				822E953B25530A6D00E98F22 /* SceneDelegate.swift in Sources */,
 				82F775E125552EE6006EDAEF /* HomeView.swift in Sources */,
 				822E95772553F73B00E98F22 /* LoginPageView.swift in Sources */,
+				8229EF1E257923B10070D1A3 /* SendingView.swift in Sources */,
 				821AB1012577D5ED00EA39D5 /* SaveAccountsView.swift in Sources */,
 				821AB0FD2577CA4600EA39D5 /* ViewExtesions.swift in Sources */,
 				821AB0FF2577CC0600EA39D5 /* LanguageView.swift in Sources */,

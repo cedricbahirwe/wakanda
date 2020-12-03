@@ -26,22 +26,23 @@ struct ContainerView<Content: View>: View {
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(.white)
                             .frame(width: 30, height: 20)
-                            .padding(.leading, 8)
                             .onTapGesture {
-                                withAnimation {                            self.presentationMode.wrappedValue.dismiss()
+                                withAnimation {
+                                    self.presentationMode.wrappedValue.dismiss()
                                 }
                         }
                     }
                     Spacer()
+                    
                     Text("Wakanda")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.heavy)
                         .foregroundColor(.black)
                         .shadow(radius: 4)
-                        
+
                         .overlay(
                             Text("Wakanda")
-                                .font(.largeTitle)
+                                .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .shadow(radius: 10)
@@ -72,9 +73,7 @@ struct ContainerView<Content: View>: View {
 struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
         ContainerView(title: "Pick a Service") {
-            //            List(0..<20) { item in
-            Text("Thi si lt best sacm ever")
-            //            }
+            Text("This is the best scam")
         }
     }
 }

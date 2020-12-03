@@ -62,7 +62,9 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        NavigationView {
+            MenuView()
+        }
         //            .environment(\.colorScheme, .dark)
     }
 }
@@ -86,13 +88,13 @@ struct MenuRow: View {
                 
                 if !self.subTitle.isEmpty {
                     Text(subTitle)
+                        .foregroundColor(.gray)
                         .font(.system(size: 12, weight: .regular))
                 }
             }
         }
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.systemBackground))
     }
 }
 
