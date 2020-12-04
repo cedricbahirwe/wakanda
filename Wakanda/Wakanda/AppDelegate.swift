@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        CNContactStore().requestAccess(for: .contacts) { (access, error) in
-          print("Access: \(access)")
-        }
+//        CNContactStore().requestAccess(for: .contacts) { (access, error) in
+//          print("Access: \(access)")
+//        }
         return true
     }
 
