@@ -9,18 +9,12 @@
 import SwiftUI
 import ContactsUI
 
-struct ContactModel: Identifiable {
-    var id = UUID()
-    var names: String
-    var phoneNumbers: [String]
-}
+
 struct SendingView: View {
     @State private var showContactPicker = false
-    @State private var contact: Contact? = nil
     @State private var contactStore = CNContactStore()
-    @State private var contacts: [String] = []
-    @State private var allContacts: [ContactModel] = []
-    @State private var selectedContact: ContactModel = .init(names: "", phoneNumbers: [])
+    @State private var allContacts: [Contact] = []
+    @State private var selectedContact: Contact = .init(names: "", phoneNumbers: [])
     var body: some View {
         ContainerView(showBackButton: true, title: "For Others") {
             VStack(spacing: 20) {
@@ -45,9 +39,7 @@ struct SendingView: View {
                 
                 Button(action: {
                     self.showContactPicker.toggle()
-                    self.fetchContacts()
-                    self.contacts = self.phoneNumberWithContryCode()
-                    print(self.allContacts)
+                    self.phoneNumberWithContryCode()
                 }) {
                     HStack {
                         Image(systemName: "person.fill")
@@ -84,70 +76,39 @@ struct SendingView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    private func fetchContacts() {
-        var contacts = [CNContact]()
-        let keys = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName)]
-        let request = CNContactFetchRequest(keysToFetch: keys)
-        
-        do {
-            try self.contactStore.enumerateContacts(with: request) {
-                (contact, stop) in
-                print(contact, "Gotten")
-                // Array containing all unified contacts from everywhere
-                contacts.append(contact)
-            }
-        }
-        catch {
-            print("unable to fetch contacts")
-        }
-    }
     
-    func phoneNumberWithContryCode() -> [String] {
+    
+    func phoneNumberWithContryCode() {
         
         let contacts = PhoneContacts.getContacts()
         for contact in contacts {
             if contact.phoneNumbers.count > 0  {
                 let contactPhoneNumbers = contact.phoneNumbers
-                let mtnNumbers = contactPhoneNumbers.filter { $0.label != ""
-                    //                    $0.value.stringValue.hasPrefix("078") ||
-                    //                    $0.value.stringValue.hasPrefix("+250") ||
-                    //                    $0.value.stringValue.hasPrefix("250")
+                let mtnNumbers = contactPhoneNumbers.filter {
+                    //                    $0.label != "" ||
+                    $0.value.stringValue.hasPrefix("078") ||
+                        $0.value.stringValue.hasPrefix("+250") ||
+                        $0.value.stringValue.hasPrefix("250")
                 }
                 
-                let numbers = mtnNumbers.map{ $0.value.stringValue }
-                
-                let newContact = ContactModel(names:contact.givenName + " " +  contact.familyName,phoneNumbers: numbers)
-                
-                self.allContacts.append(newContact)
-                
-            }
-            
-        }
-        var arrPhoneNumbers = [String]()
-        for contact in contacts {
-            for ContctNumVar: CNLabeledValue in contact.phoneNumbers {
-                let fulMobNumVar  = ContctNumVar.value
-                
-                print("The full", fulMobNumVar.stringValue)
-                //let countryCode = fulMobNumVar.value(forKey: "countryCode") get country code
-                if let MccNamVar = fulMobNumVar.value(forKey: "digits") as? String {
-                    arrPhoneNumbers.append(MccNamVar)
+                let numbers = mtnNumbers.compactMap { $0.value.value(forKey: "digits") as? String }
+                if mtnNumbers.isEmpty == false {
+                    let newContact = Contact(names:contact.givenName + " " +  contact.familyName,phoneNumbers: numbers)
+                    self.allContacts.append(newContact)
                 }
-                //                }
             }
         }
-        return arrPhoneNumbers // here array has all contact numbers.
     }
 }
 
 
 struct ContactsList: View {
-    @Binding var allContacts: [ContactModel]
-    @Binding var selectedContact: ContactModel
+    @Binding var allContacts: [Contact]
+    @Binding var selectedContact: Contact
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        VStack {
-            Text("Contacts").font(.largeTitle).bold()
+        VStack(spacing: 8) {
+            Text("Contacts").font(.largeTitle).bold().padding(.top, 10)
             List(self.allContacts.sorted(by: { $0.names < $1.names })) { contact in
                 VStack(alignment: .leading) {
                     Text(contact.names).font(.system(size: 18)).fontWeight(.semibold)
@@ -156,6 +117,7 @@ struct ContactsList: View {
                     }.padding(.leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
                 .onTapGesture {
                     self.selectedContact = contact
                     self.presentationMode.wrappedValue.dismiss()
@@ -164,72 +126,16 @@ struct ContactsList: View {
         }
     }
 }
+
 #if DEBUG
 struct SendingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SendingView()
-            ContactsList(allContacts: .constant([Wakanda.ContactModel(names: "Kate Bell", phoneNumbers: ["(555) 564-8583", "(415) 555-3695"]), Wakanda.ContactModel(names: "Daniel Higgins", phoneNumbers: ["555-478-7672", "(408) 555-5270", "(408) 555-3514"]), Wakanda.ContactModel(names: "John Appleseed", phoneNumbers: ["888-555-5512", "888-555-1212"]), Wakanda.ContactModel(names: "Anna Haro", phoneNumbers: ["555-522-8243"]), Wakanda.ContactModel(names: "Hank Zakroff", phoneNumbers: ["(555) 766-4823", "(707) 555-1854"]), Wakanda.ContactModel(names: "David Taylor", phoneNumbers: ["555-610-6679"])]), selectedContact: .constant(ContactModel(names: "Kate Bell", phoneNumbers: ["(555) 564-8583", "(415) 555-3695"])))
+            //            ContactsList(allContacts: .constant(Contact.example), selectedContact: .constant(Contact.example[0]))
         }
     }
 }
 #endif
 
 
-enum ContactsFilter {
-    case none
-    case mail
-    case message
-}
-
-class PhoneContacts {
-    
-    class func getContacts(filter: ContactsFilter = .none) -> [CNContact] {
-        
-        let contactStore = CNContactStore()
-        let keysToFetch = [
-            CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
-            CNContactPhoneNumbersKey,
-            CNContactEmailAddressesKey,
-            CNContactThumbnailImageDataKey] as [Any]
-        
-        var allContainers: [CNContainer] = []
-        do {
-            allContainers = try contactStore.containers(matching: nil)
-        } catch {
-            print("Error fetching containers")
-        }
-        
-        var results: [CNContact] = []
-        
-        for container in allContainers {
-            let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
-            
-            do {
-                let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
-                results.append(contentsOf: containerResults)
-            } catch {
-                print("Error fetching containers")
-            }
-        }
-        return results
-    }
-}
-
-extension String {
-    var isMtnNumber: Bool {
-        return
-            self.trimmingCharacters(in: .whitespaces).hasPrefix("+25078") ||
-                self.trimmingCharacters(in: .whitespaces).hasPrefix("25078") ||
-                self.trimmingCharacters(in: .whitespaces).hasPrefix("078") ||
-                self.hasPrefix("")
-    }
-}
-
-
-extension Array where Element == String  {
-    var firstElement: String {
-        get { return self.first ?? "" }
-        set(value) { self[0] = value }
-    }
-}

@@ -38,7 +38,7 @@ struct HomeView: View {
                             
                         }
                     }
-                    
+                    .hidden()
                     HStack {
                         Image(systemName: "house.fill")
                             .foregroundColor(.mainFgColor)

@@ -14,8 +14,6 @@
 		821AB1012577D5ED00EA39D5 /* SaveAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821AB1002577D5ED00EA39D5 /* SaveAccountsView.swift */; };
 		8229EF1A257913530070D1A3 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF19257913530070D1A3 /* QRView.swift */; };
 		8229EF1E257923B10070D1A3 /* SendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF1D257923B00070D1A3 /* SendingView.swift */; };
-		8229EF20257938CB0070D1A3 /* ContactPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF1F257938CB0070D1A3 /* ContactPicker.swift */; };
-		8229EF2225793A010070D1A3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229EF2125793A010070D1A3 /* Contact.swift */; };
 		822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953825530A6D00E98F22 /* AppDelegate.swift */; };
 		822E953B25530A6D00E98F22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953A25530A6D00E98F22 /* SceneDelegate.swift */; };
 		822E953D25530A6D00E98F22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E953C25530A6D00E98F22 /* ContentView.swift */; };
@@ -26,6 +24,8 @@
 		822E95772553F73B00E98F22 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95762553F73B00E98F22 /* LoginPageView.swift */; };
 		822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95782553F76200E98F22 /* CustomPasswordField.swift */; };
 		82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A2AC1D255916F0003B7D62 /* ShortcutView.swift */; };
+		82BF6BFD257A1CC900D89A00 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF6BFC257A1CC900D89A00 /* ContactModel.swift */; };
+		82BF6C01257A23E600D89A00 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF6C00257A23E600D89A00 /* ContactsFetcher.swift */; };
 		82F775DD25552E74006EDAEF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775DC25552E74006EDAEF /* DetailView.swift */; };
 		82F775E125552EE6006EDAEF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775E025552EE6006EDAEF /* HomeView.swift */; };
 		82F775E325553094006EDAEF /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F775E225553094006EDAEF /* ContainerView.swift */; };
@@ -41,8 +41,6 @@
 		821AB1002577D5ED00EA39D5 /* SaveAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAccountsView.swift; sourceTree = "<group>"; };
 		8229EF19257913530070D1A3 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		8229EF1D257923B00070D1A3 /* SendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingView.swift; sourceTree = "<group>"; };
-		8229EF1F257938CB0070D1A3 /* ContactPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPicker.swift; sourceTree = "<group>"; };
-		8229EF2125793A010070D1A3 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		822E953525530A6D00E98F22 /* Wakanda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakanda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822E953825530A6D00E98F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		822E953A25530A6D00E98F22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +53,8 @@
 		822E95762553F73B00E98F22 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		822E95782553F76200E98F22 /* CustomPasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordField.swift; sourceTree = "<group>"; };
 		82A2AC1D255916F0003B7D62 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
+		82BF6BFC257A1CC900D89A00 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		82BF6C00257A23E600D89A00 /* ContactsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFetcher.swift; sourceTree = "<group>"; };
 		82F775DC25552E74006EDAEF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		82F775E025552EE6006EDAEF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		82F775E225553094006EDAEF /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -102,8 +102,6 @@
 				8229EF19257913530070D1A3 /* QRView.swift */,
 				82A2AC1D255916F0003B7D62 /* ShortcutView.swift */,
 				8229EF1D257923B00070D1A3 /* SendingView.swift */,
-				8229EF1F257938CB0070D1A3 /* ContactPicker.swift */,
-				8229EF2125793A010070D1A3 /* Contact.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				82F775E4255538C6006EDAEF /* Extensions.swift */,
+				82BF6C00257A23E600D89A00 /* ContactsFetcher.swift */,
 				82F775E225553094006EDAEF /* ContainerView.swift */,
 				82F775E625553E1F006EDAEF /* CustomViews.swift */,
 				822E95782553F76200E98F22 /* CustomPasswordField.swift */,
@@ -143,6 +142,7 @@
 				822E953C25530A6D00E98F22 /* ContentView.swift */,
 				8229EF1C257915F80070D1A3 /* Helpers */,
 				821AB0F62577C32800EA39D5 /* MenuSubViews */,
+				82BF6BFB257A1CB800D89A00 /* Models */,
 				8229EF1B257915E60070D1A3 /* Views */,
 				82F775DC25552E74006EDAEF /* DetailView.swift */,
 				822E953E25530A6F00E98F22 /* Assets.xcassets */,
@@ -159,6 +159,14 @@
 				822E954125530A6F00E98F22 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		82BF6BFB257A1CB800D89A00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82BF6BFC257A1CC900D89A00 /* ContactModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,16 +240,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8229EF20257938CB0070D1A3 /* ContactPicker.swift in Sources */,
+				82BF6C01257A23E600D89A00 /* ContactsFetcher.swift in Sources */,
 				82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */,
 				822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */,
 				822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */,
 				82F775E325553094006EDAEF /* ContainerView.swift in Sources */,
 				821AB0FB2577C9E600EA39D5 /* AboutView.swift in Sources */,
-				8229EF2225793A010070D1A3 /* Contact.swift in Sources */,
 				822E954D25531B5C00E98F22 /* MenuView.swift in Sources */,
 				82F775DD25552E74006EDAEF /* DetailView.swift in Sources */,
 				82F775E5255538C6006EDAEF /* Extensions.swift in Sources */,
+				82BF6BFD257A1CC900D89A00 /* ContactModel.swift in Sources */,
 				8229EF1A257913530070D1A3 /* QRView.swift in Sources */,
 				822E953B25530A6D00E98F22 /* SceneDelegate.swift in Sources */,
 				82F775E125552EE6006EDAEF /* HomeView.swift in Sources */,

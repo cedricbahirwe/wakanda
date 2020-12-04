@@ -54,7 +54,6 @@ struct LoginPageView: View {
                             }
                         }
                     }, onCommit: {
-                        print("Commi")
                         if self.email.isEmpty {
                             withAnimation {
                                 self.didBeginEmailEditing = false
@@ -81,7 +80,7 @@ struct LoginPageView: View {
                         .font(.system(size: 24, weight: .heavy, design: .rounded))
                     Spacer()
                     Button(action: {
-                        print("Clicked")
+                        print("Sign In")
                     }) {
                         Image(systemName: "arrow.right")
                             .imageScale(.large)
