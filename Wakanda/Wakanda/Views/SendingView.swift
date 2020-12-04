@@ -110,11 +110,22 @@ struct ContactsList: View {
         VStack(spacing: 8) {
             Text("Contacts").font(.largeTitle).bold().padding(.top, 10)
             List(self.allContacts.sorted(by: { $0.names < $1.names })) { contact in
-                VStack(alignment: .leading) {
-                    Text(contact.names).font(.system(size: 18)).fontWeight(.semibold)
-                    ForEach(contact.phoneNumbers, id: \.self) { phoneNumber in
-                        Text(phoneNumber).foregroundColor(.mainFgColor)
-                    }.padding(.leading)
+                HStack(alignment: .top) {
+                    Color(.label)
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                        .overlay(
+                            Text(contact.names)
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                    )
+                    VStack(alignment: .leading) {
+                        
+                        Text(contact.names).font(.system(size: 18)).fontWeight(.semibold)
+                        ForEach(contact.phoneNumbers, id: \.self) { phoneNumber in
+                            Text(phoneNumber).foregroundColor(.mainFgColor)
+                        }.padding(.leading)
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
@@ -139,3 +150,13 @@ struct SendingView_Previews: PreviewProvider {
 #endif
 
 
+
+//extension String {
+//    var toInitials: String {
+//        let names  = self.split(separator: " ")
+//        let firstInitial = String(self.split(separator: " ").first?.first ?? Character(""))
+//        
+//        let lastInitial =  names.count==1 ? "" : String(self.split(separator: " ").last?.first ?? Character(" "))
+//        return firstInitial.capitalized + lastInitial.capitalized
+//    }
+//}
