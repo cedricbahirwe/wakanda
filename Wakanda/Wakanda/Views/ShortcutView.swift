@@ -37,6 +37,7 @@ struct ShortcutView: View {
             
         }
         .poppableView()
+        .hasTabView("plus.circle.fill")
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

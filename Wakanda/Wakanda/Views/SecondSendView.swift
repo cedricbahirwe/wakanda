@@ -57,7 +57,7 @@ struct SecondSendView: View {
                     }) {
                         HStack {
                             Image(systemName: "qrcode")
-                            Text("Scan codes").bold().font(.footnote)
+                            Text("Scan code").bold().font(.footnote)
                         }
                         .frame(maxWidth: .infinity)
                         .frame(height: 45)

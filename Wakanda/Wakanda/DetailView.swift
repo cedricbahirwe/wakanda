@@ -25,6 +25,11 @@ struct DetailView: View {
             }
             .padding(.top)
         }
+        .poppableView()
+    .hasTabView()
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
