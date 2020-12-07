@@ -54,7 +54,7 @@ struct HomeView: View {
                     .padding(6)
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity)
-                    .background(Color(.systemBackground).shadow(color: Color.black, radius: 2).edgesIgnoringSafeArea(.bottom))
+                    .background(Color(.systemBackground).shadow(color: Color.gray, radius: 2).edgesIgnoringSafeArea(.bottom))
                         
                     .overlay(
                         
@@ -91,7 +91,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-                    .environment(\.colorScheme, .dark)
+        .environment(\.colorScheme, .dark)
     }
 }
 

@@ -23,6 +23,7 @@
 		822E954D25531B5C00E98F22 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E954C25531B5C00E98F22 /* MenuView.swift */; };
 		822E95772553F73B00E98F22 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95762553F73B00E98F22 /* LoginPageView.swift */; };
 		822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E95782553F76200E98F22 /* CustomPasswordField.swift */; };
+		829F1ABF257E096D0053F74A /* SecondSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F1ABE257E096D0053F74A /* SecondSendView.swift */; };
 		82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A2AC1D255916F0003B7D62 /* ShortcutView.swift */; };
 		82BF6BFD257A1CC900D89A00 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF6BFC257A1CC900D89A00 /* ContactModel.swift */; };
 		82BF6C01257A23E600D89A00 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BF6C00257A23E600D89A00 /* ContactsFetcher.swift */; };
@@ -52,6 +53,7 @@
 		822E954C25531B5C00E98F22 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		822E95762553F73B00E98F22 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		822E95782553F76200E98F22 /* CustomPasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordField.swift; sourceTree = "<group>"; };
+		829F1ABE257E096D0053F74A /* SecondSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSendView.swift; sourceTree = "<group>"; };
 		82A2AC1D255916F0003B7D62 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		82BF6BFC257A1CC900D89A00 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		82BF6C00257A23E600D89A00 /* ContactsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFetcher.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				8229EF19257913530070D1A3 /* QRView.swift */,
 				82A2AC1D255916F0003B7D62 /* ShortcutView.swift */,
 				8229EF1D257923B00070D1A3 /* SendingView.swift */,
+				829F1ABE257E096D0053F74A /* SecondSendView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				82A2AC1E255916F0003B7D62 /* ShortcutView.swift in Sources */,
 				822E95792553F76200E98F22 /* CustomPasswordField.swift in Sources */,
 				822E953925530A6D00E98F22 /* AppDelegate.swift in Sources */,
+				829F1ABF257E096D0053F74A /* SecondSendView.swift in Sources */,
 				82F775E325553094006EDAEF /* ContainerView.swift in Sources */,
 				821AB0FB2577C9E600EA39D5 /* AboutView.swift in Sources */,
 				822E954D25531B5C00E98F22 /* MenuView.swift in Sources */,

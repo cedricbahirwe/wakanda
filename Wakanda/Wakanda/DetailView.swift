@@ -11,15 +11,19 @@ import SwiftUI
 struct DetailView: View {
     let parentTitle: String = ""
     var body: some View {
-        ContainerView(title: parentTitle) {
-            List(0..<5) { index in
-                DetailRow(leftImage: "mappin.circle.fill", title: "Check Airtime Balance", rightImage: "chevron.right")
-                    .padding()
-                    .background(mainBgColor)
-                    .cornerRadius(5)
-                    .shadow(radius: 3)
+        ContainerView(showBackButton: true, title: parentTitle) {
+            ScrollView {
+                VStack {
+                    ForEach(0..<5) { index in
+                        DetailRow(leftImage: "mappin.circle.fill", title: "Check Airtime Balance", rightImage: "chevron.right")
+                            .padding()
+                            .background(Color(.systemBackground))
+                            .cornerRadius(8)
+                            .padding(2)
+                    }
+                }
             }
-            .listSeparatorStyle(style: .none)
+            .padding(.top)
         }
     }
 }

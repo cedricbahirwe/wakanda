@@ -7,12 +7,9 @@
 //
 
 import SwiftUI
-import ContactsUI
-
 
 struct SendingView: View {
     @State private var showContactPicker = false
-    @State private var contactStore = CNContactStore()
     @State private var allContacts: [Contact] = []
     @State private var selectedContact: Contact = .init(names: "", phoneNumbers: [])
     var body: some View {
@@ -38,8 +35,8 @@ struct SendingView: View {
                     .font(.footnote)
                 
                 Button(action: {
+                    self.allContacts = self.phoneNumberWithContryCode()
                     self.showContactPicker.toggle()
-                    self.phoneNumberWithContryCode()
                 }) {
                     HStack {
                         Image(systemName: "person.fill")
@@ -75,30 +72,32 @@ struct SendingView: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
-    
-    
-    
-    func phoneNumberWithContryCode() {
-        
-        let contacts = PhoneContacts.getContacts()
-        for contact in contacts {
-            if contact.phoneNumbers.count > 0  {
-                let contactPhoneNumbers = contact.phoneNumbers
-                let mtnNumbers = contactPhoneNumbers.filter {
-                    //                    $0.label != "" ||
-                    $0.value.stringValue.hasPrefix("078") ||
-                        $0.value.stringValue.hasPrefix("+250") ||
-                        $0.value.stringValue.hasPrefix("250")
-                }
-                
-                let numbers = mtnNumbers.compactMap { $0.value.value(forKey: "digits") as? String }
-                if mtnNumbers.isEmpty == false {
-                    let newContact = Contact(names:contact.givenName + " " +  contact.familyName,phoneNumbers: numbers)
-                    self.allContacts.append(newContact)
-                }
-            }
-        }
-    }
+  
+}
+
+extension View {
+    func phoneNumberWithContryCode() -> [Contact] {
+          var resultingContacts: [Contact] = []
+          let contacts = PhoneContacts.getContacts()
+          for contact in contacts {
+              if contact.phoneNumbers.count > 0  {
+                  let contactPhoneNumbers = contact.phoneNumbers
+                  let mtnNumbers = contactPhoneNumbers.filter {
+                      //                    $0.label != "" ||
+                      $0.value.stringValue.hasPrefix("078") ||
+                          $0.value.stringValue.hasPrefix("+250") ||
+                          $0.value.stringValue.hasPrefix("250")
+                  }
+                  
+                  let numbers = mtnNumbers.compactMap { $0.value.value(forKey: "digits") as? String }
+                  if mtnNumbers.isEmpty == false {
+                      let newContact = Contact(names:contact.givenName + " " +  contact.familyName,phoneNumbers: numbers)
+                      resultingContacts.append(newContact)
+                  }
+              }
+          }
+          return resultingContacts
+      }
 }
 
 

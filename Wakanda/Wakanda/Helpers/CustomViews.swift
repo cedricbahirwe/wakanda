@@ -61,13 +61,14 @@ struct DetailRow: View {
             Image(systemName: leftImage)
                 .resizable()
                 .frame(width: 25, height: 25)
-                .padding(.trailing)
+                .padding(.trailing, 5)
             Text(title)
+                .font(.footnote)
             Spacer()
             Image(systemName: rightImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 20, height: 20)
+                .frame(width: 15, height: 15)
         }
     }
 }
