@@ -20,6 +20,7 @@ struct LanguageView: View {
                 ForEach(self.languages, id: \.self) { language in
                     Text(language)
                         .font(.title)
+                    
                 }
             }
             .labelsHidden()
@@ -41,7 +42,7 @@ struct LanguageView: View {
             }
         }
         .frame(width: size.width/1.5)
-        .background(Color.white.opacity(0.8).blur(radius: 0.7, opaque: true))
+        .background(Color(.systemBackground).opacity(0.8).blur(radius: 0.7, opaque: true))
         .cornerRadius(10)
         
     }
@@ -50,5 +51,6 @@ struct LanguageView: View {
 struct LanguageView_Previews: PreviewProvider {
     static var previews: some View {
         LanguageView(showLanguageView: .constant(true))
+            .environment(\.colorScheme, .dark)
     }
 }
