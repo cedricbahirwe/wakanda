@@ -13,7 +13,10 @@ let mainBgColor: some View = Color.green.colorMultiply(Color.blue)
 struct ContentView: View {
     @State private var goToShortcuts = false
     var body: some View {
-            HomeView(goToShortcuts: $goToShortcuts)
+        NavigationView {
+            LoginPageView()
+            
+        }
     }
 }
 

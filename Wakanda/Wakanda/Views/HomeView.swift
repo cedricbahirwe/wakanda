@@ -15,30 +15,28 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geo in
-            NavigationView {
-                ContainerView(title: "Pick a service") {
-                    VStack {
-                        GridStack(rows: 2, columns: 2) { row, column in
-                            NavigationLink(destination: DetailView()) {
-                                HomeMenuItem(image: self.images[self.indexFor(row,column)],
-                                             label: self.labels[self.indexFor(row,column)])
-                                    
-                                    .frame(width: geo.size.width/2.2,
-                                           height: geo.size.width/2.2)
-                                    .background(Color(.tertiarySystemBackground).opacity(01))
-                                    .cornerRadius(10)
-                            }
-                            .buttonStyle(PlainButtonStyle())
+            ContainerView(title: "Pick a service") {
+                VStack {
+                    GridStack(rows: 2, columns: 2) { row, column in
+                        NavigationLink(destination: DetailView()) {
+                            HomeMenuItem(image: self.images[self.indexFor(row,column)],
+                                         label: self.labels[self.indexFor(row,column)])
+                                
+                                .frame(width: geo.size.width/2.2,
+                                       height: geo.size.width/2.2)
+                                .background(Color(.tertiarySystemBackground).opacity(01))
+                                .cornerRadius(10)
                         }
-                        .padding()
-                        Spacer()
+                        .buttonStyle(PlainButtonStyle())
                     }
+                    .padding()
+                    Spacer()
                 }
-                .hasTabView()
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                
             }
+            .hasTabView()
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            
         }
         
     }
@@ -77,7 +75,7 @@ struct HasTab: ViewModifier {
             .padding(.horizontal)
             .frame(maxWidth: .infinity)
             .background(Color(.systemBackground).shadow(color: Color.gray, radius: 2).edgesIgnoringSafeArea(.bottom))
-                
+            
             .overlay(
                 NavigationLink(destination: ShortcutView()) {
                     Image(systemName: image)

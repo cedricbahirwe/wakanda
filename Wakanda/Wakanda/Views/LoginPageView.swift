@@ -13,6 +13,8 @@ struct LoginPageView: View {
     @State var isEditingPassword = false
     @State var email = ""
     @State var password : String = ""
+    @State private var goToShortcuts = false
+    
     
     @State var bashGradient = LinearGradient(gradient: Gradient(colors: [.yellow, .green, .purple, Color.red.opacity(0.8)]), startPoint: .topLeading, endPoint: .bottomTrailing)
     
@@ -37,11 +39,21 @@ struct LoginPageView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 80) {
-            VStack(alignment: .leading) {
-                Text("Welcome to")
-                Text("WAKANDA!")
+           
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Welcome to")
+                    Text("WAKANDA!")
                 }
-            .font(.system(size: 30, weight: .heavy, design: .rounded))
+                .font(.system(size: 30, weight: .heavy, design: .rounded))
+                Spacer()
+                Image("black-panther")
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 70)
+                    .foregroundColor(.tryit)
+            }
             VStack(spacing: 40) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Email")
@@ -60,7 +72,7 @@ struct LoginPageView: View {
                             }
                         }
                     }).disableAutocorrection(true)
-                        .overlay(Rectangle().fill(self.validateEmail ? Color.mainFgColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
+                    .overlay(Rectangle().fill(self.validateEmail ? Color.mainFgColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
                 }
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Password")
@@ -68,27 +80,26 @@ struct LoginPageView: View {
                         .offset(x: 0, y: self.isEditingPassword ? 0 : 20)
                     CustomPasswordField(text: self.$password, placeholder: "", isEditingPassword: $isEditingPassword, color: UIColor(red: 0.201, green: 0.238, blue: 0.58, alpha: 1))
                         .overlay(Rectangle()
-                            .fill(self.validatePassword ? Color.mainFgColor : .red)
-                            
-                            .frame(height: 1)
-                            .offset(y: 5)
-                            , alignment: .bottom)
+                                    .fill(self.validatePassword ? Color.mainFgColor : .red)
+                                    
+                                    .frame(height: 1)
+                                    .offset(y: 5)
+                                 , alignment: .bottom)
                 }
                 
                 HStack {
                     Text("Sign in")
                         .font(.system(size: 24, weight: .heavy, design: .rounded))
                     Spacer()
-                    Button(action: {
-                        print("Sign In")
-                    }) {
+                    NavigationLink(
+                        destination:  HomeView(goToShortcuts: $goToShortcuts)) {
                         Image(systemName: "arrow.right")
                             .imageScale(.large)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color(.systemBackground))
+                            .padding(20)
+                            .background(Color.tryit)
+                            .clipShape(Circle())
                     }
-                    .padding(20)
-                    .background(Color.tryit)
-                    .clipShape(Circle())
                 }
                 
             }.font(.system(size: 18, weight: .light))
@@ -104,6 +115,8 @@ struct LoginPageView: View {
                             .overlay(Rectangle().fill(Color.mainFgColor).frame(height: 2).offset(y: 2), alignment: .bottom)
                     }
                     Spacer()
+                    
+                    
                     Button(action: {
                         print("Forgot Password")
                     }) {
@@ -117,6 +130,8 @@ struct LoginPageView: View {
         .foregroundColor(.tryit)
         .padding()
         .padding()
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     func toStars() -> String {
