@@ -65,7 +65,7 @@ struct ContainerView<Content: View>: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .background(mainBgColor.edgesIgnoringSafeArea(.all))
+        .background(mainBgColor.ignoresSafeArea())
         
     }
 }
@@ -105,7 +105,7 @@ struct ModalView<Content: View> : View {
             ZStack {
                 //Background
                 //                Spacer()
-                //                    .edgesIgnoringSafeArea(.all)
+                //                    .ignoresSafeArea()
                 //                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                 //                    .background(isShown ? Color.black.opacity( 0.5 * fraction_progress(lowerLimit: 0, upperLimit: Double(modalHeight), current: Double(dragState.translation.height), inverted: true)) : Color.clear)
                 //                    .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
@@ -143,7 +143,7 @@ struct ModalView<Content: View> : View {
                     
                     
                 }
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
         }
     }
 }
@@ -204,7 +204,7 @@ struct PickerModalView<Content: View> : View {
             ZStack {
                 //Background
                 Spacer()
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                     .background(isShown ? Color.black.opacity( 0.5 * fraction_progress(lowerLimit: 0, upperLimit: Double(modalHeight), current: Double(0), inverted: true)) : Color.clear)
                     .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
@@ -236,7 +236,7 @@ struct PickerModalView<Content: View> : View {
                     .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     
                 }
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
         }
     }
 }

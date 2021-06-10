@@ -24,7 +24,7 @@ struct SecondSendView: View {
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 0.5))
                     .font(.footnote)
                 
-                TextField("Enter Receiver's Number", text: self.$selectedContact.phoneNumbers.firstElement)
+                TextField("Enter Receiver's Number", text: $selectedContact.phoneNumbers.firstElement)
                     .keyboardType(.numberPad)
                     .textContentType(.telephoneNumber)
                     .foregroundColor(.gray)
@@ -36,8 +36,8 @@ struct SecondSendView: View {
                 
                 HStack {
                     Button(action: {
-                        self.allContacts = self.phoneNumberWithContryCode()
-                        self.showContactPicker.toggle()
+                        allContacts = phoneNumberWithContryCode()
+                        showContactPicker.toggle()
                     }) {
                         HStack {
                             Image(systemName: "person.fill")
@@ -52,8 +52,8 @@ struct SecondSendView: View {
                     }
                     
                     Button(action: {
-                        self.allContacts = self.phoneNumberWithContryCode()
-                        self.showContactPicker.toggle()
+                        allContacts = phoneNumberWithContryCode()
+                        showContactPicker.toggle()
                     }) {
                         HStack {
                             Image(systemName: "qrcode")
@@ -83,8 +83,8 @@ struct SecondSendView: View {
             }.padding(.top)
         }
         .poppableView()
-        .sheet(isPresented: self.$showContactPicker) {
-            ContactsList(allContacts: self.$allContacts, selectedContact: self.$selectedContact)
+        .sheet(isPresented: $showContactPicker) {
+            ContactsList(allContacts: $allContacts, selectedContact: $selectedContact)
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)

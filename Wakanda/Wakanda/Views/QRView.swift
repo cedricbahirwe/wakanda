@@ -30,7 +30,7 @@ struct QRView: View {
                         .minimumScaleFactor(0.6)
                 }
                 .padding(.bottom)
-                Image(uiImage: self.generateQRCodeImage(from: "+250782628511"))
+                Image(uiImage:generateQRCodeImage(from: "+250782628511"))
                     .interpolation(.none)
                     .resizable()
                     .frame(width: size.width/2, height: size.width/2)

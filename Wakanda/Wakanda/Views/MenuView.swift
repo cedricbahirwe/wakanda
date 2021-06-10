@@ -29,9 +29,9 @@ struct MenuView: View {
                         MenuRow(image: "plus.circle.fill", title: "Save your accounts", subTitle: "Save your meter numbers etc")
                     }
                     MenuRow(image: "square.and.arrow.up.fill", title: "Share Wakanda", subTitle: "Share app with friends")
-                        .onTapGesture { self.actionShareSheet()}
+                        .onTapGesture { actionShareSheet()}
                     MenuRow(image: "person.3.fill", title: "Change Language", subTitle: "")
-                        .onTapGesture { self.showLanguageView.toggle() }
+                        .onTapGesture { showLanguageView.toggle() }
                     NavigationLink(destination: AboutView()) {
                         MenuRow(image: "exclamationmark.circle.fill", title: "About Wakanda", subTitle: "")
                     }
@@ -48,9 +48,9 @@ struct MenuView: View {
                 .padding(.leading)
                 .padding(.trailing, 5)
             }
-            .background(Color.secondaryBgColor.edgesIgnoringSafeArea(.all))
+            .background(Color.secondaryBgColor.ignoresSafeArea())
             .transition(.slide)
-            if self.showLanguageView { LanguageView(showLanguageView: $showLanguageView) }
+            if showLanguageView { LanguageView(showLanguageView: $showLanguageView) }
             
         }
         .poppableView()
@@ -86,7 +86,7 @@ struct MenuRow: View {
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(Color(.label))
                 
-                if !self.subTitle.isEmpty {
+                if !subTitle.isEmpty {
                     Text(subTitle)
                         .foregroundColor(.gray)
                         .font(.system(size: 12, weight: .regular))
@@ -113,7 +113,7 @@ struct ColoredHeader: View {
                 .frame(width: 20, height: 20)
                 .onTapGesture {
                     withAnimation {
-                        self.presentationMode.wrappedValue.dismiss()
+                        presentationMode.wrappedValue.dismiss()
                     }
             }
             Spacer().frame(width: 50)

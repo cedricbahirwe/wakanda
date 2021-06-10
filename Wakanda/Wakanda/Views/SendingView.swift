@@ -24,7 +24,7 @@ struct SendingView: View {
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 0.5))
                     .font(.footnote)
                 
-                TextField("Enter Mobile Number", text: self.$selectedContact.phoneNumbers.firstElement)
+                TextField("Enter Mobile Number", text: $selectedContact.phoneNumbers.firstElement)
                     .keyboardType(.numberPad)
                     .textContentType(.telephoneNumber)
                     .foregroundColor(.gray)
@@ -35,8 +35,8 @@ struct SendingView: View {
                     .font(.footnote)
                 
                 Button(action: {
-                    self.allContacts = self.phoneNumberWithContryCode()
-                    self.showContactPicker.toggle()
+                    allContacts = phoneNumberWithContryCode()
+                    showContactPicker.toggle()
                 }) {
                     HStack {
                         Image(systemName: "person.fill")
@@ -65,8 +65,8 @@ struct SendingView: View {
             }.padding(.top)
         }
         .poppableView()
-        .sheet(isPresented: self.$showContactPicker) {
-            ContactsList(allContacts: self.$allContacts, selectedContact: self.$selectedContact)
+        .sheet(isPresented: $showContactPicker) {
+            ContactsList(allContacts: $allContacts, selectedContact: $selectedContact)
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
@@ -108,7 +108,7 @@ struct ContactsList: View {
     var body: some View {
         VStack(spacing: 8) {
             Text("Contacts").font(.largeTitle).bold().padding(.top, 10)
-            List(self.allContacts.sorted(by: { $0.names < $1.names })) { contact in
+            List(allContacts.sorted(by: { $0.names < $1.names })) { contact in
                 HStack(alignment: .top) {
                     Color(.label)
                         .frame(width: 80, height: 80)
@@ -129,8 +129,8 @@ struct ContactsList: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    self.selectedContact = contact
-                    self.presentationMode.wrappedValue.dismiss()
+                    selectedContact = contact
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
         }
@@ -149,13 +149,3 @@ struct SendingView_Previews: PreviewProvider {
 #endif
 
 
-
-//extension String {
-//    var toInitials: String {
-//        let names  = self.split(separator: " ")
-//        let firstInitial = String(self.split(separator: " ").first?.first ?? Character(""))
-//        
-//        let lastInitial =  names.count==1 ? "" : String(self.split(separator: " ").last?.first ?? Character(" "))
-//        return firstInitial.capitalized + lastInitial.capitalized
-//    }
-//}

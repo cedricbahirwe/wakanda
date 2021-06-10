@@ -13,7 +13,7 @@ struct FAQView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            Color.mainFgColor.edgesIgnoringSafeArea(.all)
+            Color.mainFgColor.ignoresSafeArea()
             VStack(alignment :. leading) {
                 HStack {
                     Image(systemName: "arrow.left")

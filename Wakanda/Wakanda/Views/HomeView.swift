@@ -19,8 +19,8 @@ struct HomeView: View {
                 VStack {
                     GridStack(rows: 2, columns: 2) { row, column in
                         NavigationLink(destination: DetailView()) {
-                            HomeMenuItem(image: self.images[self.indexFor(row,column)],
-                                         label: self.labels[self.indexFor(row,column)])
+                            HomeMenuItem(image: images[indexFor(row,column)],
+                                         label: labels[indexFor(row,column)])
                                 
                                 .frame(width: geo.size.width/2.2,
                                        height: geo.size.width/2.2)

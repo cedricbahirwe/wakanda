@@ -38,74 +38,89 @@ struct LoginPageView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 80) {
-           
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Welcome to")
-                    Text("WAKANDA!")
-                }
-                .font(.system(size: 30, weight: .heavy, design: .rounded))
-                Spacer()
-                Image("black-panther")
-                    .resizable()
-                    .renderingMode(.template)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 70)
-                    .foregroundColor(.tryit)
-            }
-            VStack(spacing: 40) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Email")
-                        .opacity(self.didBeginEmailEditing ? 0.6 : 1)
-                        .offset(x: 0, y: self.didBeginEmailEditing ? 0 : 20)
-                    TextField("", text: self.$email, onEditingChanged: { editing in
-                        if editing {
-                            withAnimation {
-                                self.didBeginEmailEditing = editing
-                            }
-                        }
-                    }, onCommit: {
-                        if self.email.isEmpty {
-                            withAnimation {
-                                self.didBeginEmailEditing = false
-                            }
-                        }
-                    }).disableAutocorrection(true)
-                    .overlay(Rectangle().fill(self.validateEmail ? Color.mainFgColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
-                }
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Password")
-                        .opacity(self.isEditingPassword ? 0.6 : 1)
-                        .offset(x: 0, y: self.isEditingPassword ? 0 : 20)
-                    TextField("Password", text: $password)
-                        .overlay(Rectangle()
-                                    .fill(self.validatePassword ? Color.mainFgColor : .red)
-                                    
-                                    .frame(height: 1)
-                                    .offset(y: 5)
-                                 , alignment: .bottom)
-                }
-                
+        GeometryReader { _ in
+            VStack(alignment: .leading, spacing: 80) {
                 HStack {
-                    Text("Sign in")
-                        .font(.system(size: 24, weight: .heavy, design: .rounded))
-                    Spacer()
-                    NavigationLink(
-                        destination:  HomeView(goToShortcuts: $goToShortcuts)) {
-                        Image(systemName: "arrow.right")
-                            .imageScale(.large)
-                            .foregroundColor(Color(.systemBackground))
-                            .padding(20)
-                            .background(Color.tryit)
-                            .clipShape(Circle())
+                    VStack(alignment: .leading) {
+                        Text("Welcome to")
+                        Text("WAKANDA!")
                     }
+                    .font(.system(size: 30, weight: .heavy, design: .rounded))
+                    Spacer()
+                    Image("black-panther")
+                        .resizable()
+                        .renderingMode(.template)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80, height: 70)
+                        .foregroundColor(.tryit)
                 }
+                .padding(.top)
+                VStack(spacing: 30) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Email")
+                            .opacity(didBeginEmailEditing ? 0.6 : 1)
+                            .offset(x: 0, y: didBeginEmailEditing ? 0 : 20)
+                        TextField("", text: $email, onEditingChanged: { editing in
+                            if editing {
+                                withAnimation {
+                                    didBeginEmailEditing = editing
+                                }
+                            }
+                        }, onCommit: {
+                            if email.isEmpty {
+                                withAnimation {
+                                    didBeginEmailEditing = false
+                                }
+                            }
+                        })
+                        .disableAutocorrection(true)
+                        .overlay(Rectangle().fill(validateEmail ? Color.mainFgColor : .red).frame(height: 1).offset(y: 5), alignment: .bottom)
+                    }
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Password")
+                            .opacity(isEditingPassword ? 0.6 : 1)
+                            .offset(x: 0, y: isEditingPassword ? 0 : 20)
+                        TextField("Password", text: $password ,onEditingChanged: { editing in
+                            if editing {
+                                withAnimation {
+                                    isEditingPassword = editing
+                                }
+                            }
+                        }, onCommit: {
+                            if password.isEmpty {
+                                withAnimation {
+                                    isEditingPassword = false
+                                }
+                            }
+                        })
+                        .overlay(
+                            Rectangle()
+                                .fill(validatePassword ? Color.mainFgColor : .red)
+                                
+                                .frame(height: 1)
+                                .offset(y: 5)
+                            , alignment: .bottom)
+                    }
+                    
+                    HStack {
+                        Text("Sign in")
+                            .font(.system(size: 24, weight: .heavy, design: .rounded))
+                        Spacer()
+                        NavigationLink(
+                            destination:  HomeView(goToShortcuts: $goToShortcuts)) {
+                            Image(systemName: "arrow.right")
+                                .imageScale(.large)
+                                .foregroundColor(Color(.systemBackground))
+                                .padding(20)
+                                .background(Color.tryit)
+                                .clipShape(Circle())
+                        }
+                    }
+                    
+                }
+                .font(.system(size: 18, weight: .light))
                 
-            }.font(.system(size: 18, weight: .light))
-            
-            
-            VStack {
+                
                 HStack {
                     Button(action: {
                         print("Sign Up")
@@ -125,22 +140,14 @@ struct LoginPageView: View {
                             .overlay(Rectangle().fill(Color.mainFgColor).frame(height: 2).offset(y: 2), alignment: .bottom)
                     }
                 }
+                
             }
+            .foregroundColor(.tryit)
+            .padding([.horizontal], 32)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
-        .foregroundColor(.tryit)
-        .padding()
-        .padding()
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-    }
-    
-    func toStars() -> String {
-        let str = self.password
-        
-        let stars = [String](repeating: "*", count: str.count)
-        
-        let newPass = str.replacingOccurrences(of: str, with: stars.joined(), options: .caseInsensitive, range: .none)
-        return newPass
+        .ignoresSafeArea(.all, edges: .bottom)        
     }
 }
 
