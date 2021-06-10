@@ -9,16 +9,6 @@
 import Foundation
 import SwiftUI
 
-struct ListSeparatorStyle: ViewModifier {
-    
-    let style : UITableViewCell.SeparatorStyle
-    func body(content: Content) -> some View {
-        content
-            .onAppear {
-                UITableView.appearance().separatorStyle = self.style
-        }
-    }
-}
 
 struct PopView: ViewModifier {
     @Environment(\.presentationMode) var presentationMode
@@ -30,16 +20,12 @@ struct PopView: ViewModifier {
                         withAnimation {
                             self.presentationMode.wrappedValue.dismiss()
                         }
-                }
-        )
+                    }
+            )
     }
 }
 
 extension View {
-    func listSeparatorStyle(style:UITableViewCell.SeparatorStyle) -> some View {
-        ModifiedContent(content: self, modifier: ListSeparatorStyle(style: style))
-    }
-    
     func poppableView() -> some View {
         ModifiedContent(content: self, modifier: PopView())
     }
@@ -70,17 +56,17 @@ extension UIImage {
 extension String {
     var isMtnNumber: Bool {
         return
-            self.trimmingCharacters(in: .whitespaces).hasPrefix("+25078") ||
-                self.trimmingCharacters(in: .whitespaces).hasPrefix("25078") ||
-                self.trimmingCharacters(in: .whitespaces).hasPrefix("078") ||
-                self.hasPrefix("")
+            trimmingCharacters(in: .whitespaces).hasPrefix("+25078") ||
+            trimmingCharacters(in: .whitespaces).hasPrefix("25078") ||
+            trimmingCharacters(in: .whitespaces).hasPrefix("078") ||
+            hasPrefix("")
     }
 }
 
 
 extension Array where Element == String  {
     var firstElement: String {
-        get { return self.first ?? "" }
+        get { return first ?? "" }
         set(value) { self[0] = value }
     }
 }

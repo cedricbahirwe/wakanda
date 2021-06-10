@@ -78,7 +78,7 @@ struct LoginPageView: View {
                     Text("Password")
                         .opacity(self.isEditingPassword ? 0.6 : 1)
                         .offset(x: 0, y: self.isEditingPassword ? 0 : 20)
-                    CustomPasswordField(text: self.$password, placeholder: "", isEditingPassword: $isEditingPassword, color: UIColor(red: 0.201, green: 0.238, blue: 0.58, alpha: 1))
+                    TextField("Password", text: $password)
                         .overlay(Rectangle()
                                     .fill(self.validatePassword ? Color.mainFgColor : .red)
                                     
