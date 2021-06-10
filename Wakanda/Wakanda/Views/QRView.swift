@@ -23,7 +23,7 @@ struct QRView: View {
                         .foregroundColor(.mainFgColor)
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
-                    Text("Wakanda user on +2507826511")
+                    Text("Wakanda user on +250 782 628 511")
                         .bold()
                         .foregroundColor(.mainFgColor)
                         .lineLimit(1)
@@ -60,7 +60,7 @@ struct QRView: View {
 struct QRView_Previews: PreviewProvider {
     static var previews: some View {
         QRView()
-        //            .environment(\.colorScheme, .dark)
+                    .environment(\.colorScheme, .dark)
     }
 }
 

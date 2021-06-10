@@ -125,7 +125,7 @@ struct ModalView<Content: View> : View {
                         ZStack{
                             Color.secondaryBgColor.opacity(1.0)
                                 .frame(width: size.width, height:modalHeight)
-                                .cornerRadius(30)
+                                .cornerRadius(30, corners: [.topLeft, .topRight])
                                 .onTapGesture {
                                     self.hideKeyboard()
                             }

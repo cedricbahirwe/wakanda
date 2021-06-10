@@ -46,7 +46,7 @@ struct SendingView: View {
                     .frame(height: 45)
                     .background(Color(.systemBackground))
                     .cornerRadius(8)
-                    .shadow(color: Color(.darkGray), radius: 1, x: 2, y: 2)
+                    .shadow(color: Color(.darkGray), radius: 1, x: 0, y:0.5)
                     .foregroundColor(Color(red: 0.008, green: 0.087, blue: 0.254))
                 }
                 
@@ -57,7 +57,7 @@ struct SendingView: View {
                         .frame(height: 45)
                         .background(Color(.systemBackground))
                         .cornerRadius(8)
-                        .shadow(color: Color(.darkGray), radius: 1, x: 2, y: 2)
+                        .shadow(color: Color(.darkGray), radius: 1, x: 0, y:0.5)
                         .foregroundColor(.black)
                 }
                 

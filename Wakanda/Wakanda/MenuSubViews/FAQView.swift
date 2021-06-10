@@ -23,7 +23,7 @@ struct FAQView: View {
                         .frame(width: 25, height: 25)
                         .onTapGesture {
                             withAnimation {
-                                self.presentationMode.wrappedValue.dismiss()
+                                presentationMode.wrappedValue.dismiss()
                             }
                     }
                     Spacer()
@@ -66,14 +66,18 @@ struct QAView: View {
         VStack(alignment: .leading) {
             HStack(spacing: 20) {
                 Image(systemName: showAnswer ? "chevron.up" : "chevron.down")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(5)
+                    .frame(width: 25, height: 25)
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            self.showAnswer.toggle()
+                            showAnswer.toggle()
                         }
                 }
                 Text(question)
             }
-            if self.showAnswer {
+            if showAnswer {
                 HStack {
                     Spacer()
                     Text(answer)

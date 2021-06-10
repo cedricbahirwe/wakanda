@@ -13,7 +13,7 @@ struct AboutView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ColoredHeader("About Wakanda")
-            Text("Wakanda app makes it easy to interact with Telco services and mobile money services through our fast and scure app. Wakanda is made by 'ABC Inc', A software development company founded in 2020. ABC Inc is one of the leaders in software development with a list of clients that include governement institutions, international organizations, and companies.")
+            Text("Wakanda app makes it easy to interact with Telco services and mobile money services through our fast and secure app. Wakanda is made by ABC Inc, A software development company founded in 2018. ABC Inc is one of the leaders in software development with a list of clients that include governement institutions, international organizations, and companies.")
                 .font(.callout)
                 .padding()
             Spacer()

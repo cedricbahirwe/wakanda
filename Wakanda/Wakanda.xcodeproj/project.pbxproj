@@ -103,6 +103,7 @@
 				82A2AC1D255916F0003B7D62 /* ShortcutView.swift */,
 				8229EF1D257923B00070D1A3 /* SendingView.swift */,
 				829F1ABE257E096D0053F74A /* SecondSendView.swift */,
+				82F775DC25552E74006EDAEF /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,7 +145,6 @@
 				821AB0F62577C32800EA39D5 /* MenuSubViews */,
 				82BF6BFB257A1CB800D89A00 /* Models */,
 				8229EF1B257915E60070D1A3 /* Views */,
-				82F775DC25552E74006EDAEF /* DetailView.swift */,
 				822E953E25530A6F00E98F22 /* Assets.xcassets */,
 				822E954325530A6F00E98F22 /* LaunchScreen.storyboard */,
 				822E954625530A6F00E98F22 /* Info.plist */,
