@@ -40,6 +40,7 @@ struct LoginPageView: View {
     var body: some View {
         GeometryReader { _ in
             VStack(alignment: .leading, spacing: 80) {
+                Spacer()
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Welcome to")
@@ -140,7 +141,8 @@ struct LoginPageView: View {
                             .overlay(Rectangle().fill(Color.mainFgColor).frame(height: 2).offset(y: 2), alignment: .bottom)
                     }
                 }
-                
+                Spacer()
+                Spacer()
             }
             .foregroundColor(.tryit)
             .padding([.horizontal], 32)
